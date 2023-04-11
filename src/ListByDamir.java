@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class ListByDamir<T> implements MyList {
     private Object[] array;
     private int size;
@@ -20,6 +22,10 @@ public class ListByDamir<T> implements MyList {
 
     @Override
     public boolean contains(Object o) {
+        for(int i = 0; i < size; i++){
+            if(Objects.equals(o, array[i]))
+                return true;
+        }
         return false;
     }
 
