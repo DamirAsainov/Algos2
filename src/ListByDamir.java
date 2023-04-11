@@ -1,7 +1,21 @@
-public class ListByDamir implements MyList {
-    private int length;
-    public int size(){
-        return length;
+public class ListByDamir<T> implements MyList {
+    private Object[] array;
+    private int size;
+    public ListByDamir(){array = new Object[5];}
+
+    private void increaseBuffer(){
+        T[] newArr = (T[]) new Object[array.length + 5];
+        for(int i=0; i< array.length; i++){
+            newArr[i]= (T) array[i];
+        }
+        array = newArr;
+    }
+    private void checkIndex(int index){
+        if(index < 0 || index >= size)
+            throw new IndexOutOfBoundsException();
+    }
+    public int getSize(){
+        return size;
     }
 
     @Override
@@ -11,7 +25,9 @@ public class ListByDamir implements MyList {
 
     @Override
     public void add(Object item) {
-
+        if(size == array.length)
+            increaseBuffer();
+        this.array[size++] = item;
     }
 
     @Override
@@ -32,7 +48,8 @@ public class ListByDamir implements MyList {
     }
     @Override
     public Object get(int index) {
-        return null;
+        checkIndex(index);
+        return (T) array[index];
     }
     @Override
     public int indexOf(Object o) {

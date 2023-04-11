@@ -1,5 +1,5 @@
 public interface MyList<T>{
-    int size();
+    int getSize();
     boolean contains(Object o);
     void add(T item);
     void add(T item, int index);
