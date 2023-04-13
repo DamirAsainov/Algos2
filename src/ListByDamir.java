@@ -84,6 +84,19 @@ public class ListByDamir<T> implements MyList {
     }
     @Override
     public void sort() {
-
+        for(int i = 0; i < size - 1; i++){
+            for(int j = 0; j < size - i - 1;j++){
+                if(Objects.compare(Objects.toString(array[j + 1]), Objects.toString(array[j]), String::compareTo) < 0){
+                    Object temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+            }
+        }
+    }
+    public void print(){
+        for(int i = 0; i < size; i++)
+            System.out.print(array[i] + " ");
+        System.out.println();
     }
 }
