@@ -28,7 +28,6 @@ public class ListByDamir<T> implements MyList {
         }
         return false;
     }
-
     @Override
     public void add(Object item) {
         if(size == array.length)
@@ -38,7 +37,16 @@ public class ListByDamir<T> implements MyList {
 
     @Override
     public void add(Object item, int index) {
-
+        checkIndex(index);
+        if(size == array.length)
+            increaseBuffer();
+        for(int i = size; i > index; i--){
+            Object temp = array[i];
+            array[i] = array[i - 1];
+            array[i - 1] = temp;
+        }
+        array[index] = item;
+        size++;
     }
     @Override
     public Object remove(int index) {
