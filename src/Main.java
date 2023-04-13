@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Main {
     public static void main(String[] args) {
         ListByDamir<String> list = new ListByDamir<>();
@@ -14,5 +12,6 @@ public class Main {
         for(int i = 0; i < list.getSize(); i++){
             System.out.print(list.get(i) + " ");
         }
+        System.out.println("\n" + list.indexOf("TEST"));
     }
 }

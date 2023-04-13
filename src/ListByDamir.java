@@ -68,7 +68,11 @@ public class ListByDamir<T> implements MyList {
     }
     @Override
     public int indexOf(Object o) {
-        return 0;
+        for(int i = 0; i < size; i++){
+            if(Objects.equals(o, array[i]))
+                return i;
+        }
+        return -1;
     }
     @Override
     public int lastIndexOf(Object o) {
