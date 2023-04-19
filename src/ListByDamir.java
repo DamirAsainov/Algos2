@@ -5,6 +5,11 @@ public class ListByDamir<T> implements MyList {
     private int size;
     public ListByDamir(){array = new Object[5];}
 
+    private void swap(int index1, int index2){
+        Object temp = array[index1];
+        array[index1] = array[index2];
+        array[index2] = temp;
+    }
     private void increaseBuffer(){
         T[] newArr = (T[]) new Object[array.length + 5];
         for(int i=0; i< array.length; i++){
@@ -30,7 +35,7 @@ public class ListByDamir<T> implements MyList {
     }
     @Override
     public void add(Object item) {
-        if(size == array.length)
+        if(size == array.length - 1)
             increaseBuffer();
         this.array[size++] = item;
     }
@@ -50,7 +55,14 @@ public class ListByDamir<T> implements MyList {
     }
     @Override
     public Object remove(int index) {
-        return null;
+        Object retObj = array[index];
+       for(int i = index;i < size; i++){
+           Object temp = array[i + 1];
+           array[i + 1] = array[i];
+           array[i] = temp;
+       }
+       size--;
+       return retObj;
     }
     @Override
     public boolean remove(Object item) {

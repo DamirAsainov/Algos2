@@ -18,11 +18,14 @@ public class Main {
         list.print();
 
         ListByDamir<Integer> intList = new ListByDamir<>();
-        intList.add(199);
+        intList.add(129);
         intList.add(-3);
         intList.add(0);
         intList.add(-18);
+        intList.add(14);
         intList.sort();
+        intList.print();
+        System.out.println(intList.remove(3));
         intList.print();
     }
 }
