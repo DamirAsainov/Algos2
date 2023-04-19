@@ -34,15 +34,28 @@ public class MyLinkedList<T> implements MyList {
 
     @Override
     public void add(Object item, int index) {
-//        MyNode<T> curNode = head;
-//        MyNode<T> newNode = new MyNode<>(item);
-//        for(int i = 0; i < index; i++){
-//            curNode = curNode.next;
-//        }
-//        MyNode<T> nextNode = curNode.next.next;
-//        curNode.next = newNode;
-//        nextNode.next = nextNode;
-//        size++;
+        MyNode<T> newNode = new MyNode<>(item);
+        if(index == 0){
+            head.prev = newNode;
+            newNode.next = head;
+            head = newNode;
+            size++;
+            return;
+        }
+        if(index == size - 1){
+            tail.next = newNode;
+            newNode.prev = tail;
+            tail = newNode;
+            size++;
+        }
+        MyNode<T> currentNode = head;
+        for(int i = 0; i < index - 1; i++){
+            currentNode = currentNode.next;
+        }
+        newNode.prev = currentNode;
+        newNode.next = currentNode.next;
+        currentNode.next = newNode;
+        size++;
     }
     @Override
     public Object remove(int index) {
