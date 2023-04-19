@@ -8,7 +8,6 @@ public class MyLinkedList<T> implements MyList {
     public int getSize(){
         return size;
     }
-
     @Override
     public boolean contains(Object o) {
         return false;
@@ -41,7 +40,9 @@ public class MyLinkedList<T> implements MyList {
     }
     @Override
     public void clear() {
-
+        size = 0;
+        head = null;
+        tail = null;
     }
     @Override
     public Object get(int index) {
