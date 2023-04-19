@@ -10,11 +10,12 @@ public class Main {
         list.add("1");
         list.add("TEST");
         System.out.println(list.get(0));
-        System.out.println(list.contains("2"));
+        System.out.println(list.remove("-2"));
         list.print();
         System.out.println(list.indexOf("TEST"));
         System.out.println(list.lastIndexOf("TEST"));
         list.sort();
+        System.out.println(list.remove("-2"));
         list.print();
 
         ListByDamir<Integer> intList = new ListByDamir<>();

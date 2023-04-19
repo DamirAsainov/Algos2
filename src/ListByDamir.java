@@ -66,7 +66,14 @@ public class ListByDamir<T> implements MyList {
     }
     @Override
     public boolean remove(Object item) {
-        return false;
+        if(!contains(item))
+            return false;
+        for(int i = 0; i < size; i++){
+            if(Objects.equals(item, array[i])){
+                remove(i--);
+            }
+        }
+        return true;
     }
     @Override
     public void clear() {
