@@ -18,6 +18,7 @@ public class MyLinkedList<T> implements MyList {
         if (head == null)
             head = tail = newNode;
         else {
+            newNode.prev = tail;
             tail.next = newNode;
             tail = newNode;
         }
@@ -26,17 +27,39 @@ public class MyLinkedList<T> implements MyList {
 
     @Override
     public void add(Object item, int index) {
-
+//        MyNode<T> curNode = head;
+//        MyNode<T> newNode = new MyNode<>(item);
+//        for(int i = 0; i < index; i++){
+//            curNode = curNode.next;
+//        }
+//        MyNode<T> nextNode = curNode.next.next;
+//        curNode.next = newNode;
+//        nextNode.next = nextNode;
+//        size++;
     }
     @Override
     public Object remove(int index) {
-
         return null;
     }
     @Override
     public boolean remove(Object item) {
-
-        return true;
+        if(item == head.data){
+            head.next.prev = null;
+            head = head.next;
+            size--;
+            return true;
+        }
+        MyNode<T> currentNode = head;
+        while (currentNode.next != null){
+            if (currentNode.next.data == item){
+                currentNode.next.next.prev = currentNode;
+                currentNode.next = currentNode.next.next;
+                size--;
+                return true;
+            }
+            currentNode = currentNode.next;
+        }
+        return false;
     }
     @Override
     public void clear() {
@@ -54,11 +77,22 @@ public class MyLinkedList<T> implements MyList {
     }
     @Override
     public int indexOf(Object o) {
-
+        MyNode<T> currentNode = head;
+        for(int i = 0; currentNode != null; i++){
+            if(o == currentNode.data)
+                return i;
+            currentNode = currentNode.next;
+        }
         return -1;
     }
     @Override
     public int lastIndexOf(Object o) {
+        MyNode<T> currentNode = tail;
+        for(int i = size - 1; i >= 0; i--){
+            if(o == currentNode.data)
+                return i;
+            currentNode = currentNode.prev;
+        }
         return -1;
     }
     @Override
