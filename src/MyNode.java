@@ -1,8 +1,8 @@
-public class MyNode {
-    int data;
-    MyNode next;
+public class MyNode<T> {
+    Object data;
+    MyNode<T> next;
 
-    MyNode(int data){
+    MyNode(Object data){
         this.data = data;
         next = null;
     }
