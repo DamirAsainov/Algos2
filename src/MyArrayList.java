@@ -1,9 +1,9 @@
 import java.util.Objects;
 
-public class ListByDamir<T> implements MyList {
+public class MyArrayList<T> implements MyList {
     private Object[] array;
     private int size;
-    public ListByDamir(){array = new Object[5];}
+    public MyArrayList(){array = new Object[5];}
 
     private void swap(int index1, int index2){
         Object temp = array[index1];

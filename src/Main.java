@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        ListByDamir<String> list = new ListByDamir<>();
+        MyArrayList<String> list = new MyArrayList<>();
         list.add("0");
         list.add("1.123");
         list.add("-2");
@@ -18,7 +18,7 @@ public class Main {
         System.out.println(list.remove("-2"));
         list.print();
 
-        ListByDamir<Integer> intList = new ListByDamir<>();
+        MyArrayList<Integer> intList = new MyArrayList<>();
         intList.add(129);
         intList.add(-3);
         intList.add(0);
