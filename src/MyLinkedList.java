@@ -6,7 +6,7 @@ public class MyLinkedList<T> implements MyList {
     public MyLinkedList(){};
 
     public int getSize(){
-        return -1;
+        return size;
     }
 
     @Override
@@ -22,6 +22,7 @@ public class MyLinkedList<T> implements MyList {
             tail.next = newNode;
             tail = newNode;
         }
+        size++;
     }
 
     @Override

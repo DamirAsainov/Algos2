@@ -3,5 +3,6 @@ public class Main {
         MyLinkedList<String> linkedList = new MyLinkedList<>();
         linkedList.add("DAD");
         System.out.println(linkedList.get(0));
+        System.out.println(linkedList.getSize());
     }
 }
