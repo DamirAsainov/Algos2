@@ -44,7 +44,11 @@ public class MyLinkedList<T> implements MyList {
     }
     @Override
     public Object get(int index) {
-        return null;
+        MyNode<T> curNode = head;
+        for (int i = 0; i < index;i++){
+            curNode = curNode.next;
+        }
+        return curNode.data;
     }
     @Override
     public int indexOf(Object o) {
