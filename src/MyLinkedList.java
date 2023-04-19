@@ -10,6 +10,13 @@ public class MyLinkedList<T> implements MyList {
     }
     @Override
     public boolean contains(Object o) {
+        MyNode<T> currentNode = head;
+        for (int i = 0; i < size; i++){
+            if(currentNode.data == o){
+                return true;
+            }
+            currentNode = currentNode.next;
+        }
         return false;
     }
     @Override

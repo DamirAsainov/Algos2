@@ -21,6 +21,7 @@ public class Main {
         }
         System.out.println();
         System.out.println(linkedList.indexOf("4"));
-        System.out.println(linkedList.lastIndexOf("0"));
+        System.out.println(linkedList.lastIndexOf("4"));
+        System.out.println(linkedList.contains("7"));
     }
 }
