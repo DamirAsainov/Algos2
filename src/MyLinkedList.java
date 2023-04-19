@@ -3,7 +3,7 @@ public class MyLinkedList<T> implements MyList {
     private MyNode<T> tail;
     private int size;
 
-    public MyLinkedList(){};
+    public MyLinkedList(){}
 
     public int getSize(){
         return size;
@@ -39,7 +39,30 @@ public class MyLinkedList<T> implements MyList {
     }
     @Override
     public Object remove(int index) {
-        return null;
+        Object removeObj;
+        if(index == 0){
+            removeObj = head.data;
+            head.next.prev = null;
+            head = head.next;
+            size--;
+            return removeObj;
+        }
+        if(index == size - 1){
+            removeObj = tail.data;
+            tail.prev.next = null;
+            tail = tail.prev;
+            size--;
+            return removeObj;
+        }
+        MyNode<T> currentNode = head;
+        for(int i = 0; i < index - 1; i++){
+            currentNode = currentNode.next;
+        }
+        removeObj = currentNode.next.data;
+        currentNode.next.next.prev = currentNode;
+        currentNode.next = currentNode.next.next;
+        size--;
+        return removeObj;
     }
     @Override
     public boolean remove(Object item) {
@@ -50,7 +73,7 @@ public class MyLinkedList<T> implements MyList {
             return true;
         }
         MyNode<T> currentNode = head;
-        while (currentNode.next != null){
+        for(int i = 0; i < size - 2;i++){
             if (currentNode.next.data == item){
                 currentNode.next.next.prev = currentNode;
                 currentNode.next = currentNode.next.next;
@@ -58,6 +81,12 @@ public class MyLinkedList<T> implements MyList {
                 return true;
             }
             currentNode = currentNode.next;
+        }
+        if(tail.data == item){
+            tail.prev.next = null;
+            //MyNode<T> newTail = tail.prev;
+            tail = tail.prev;
+            size--;
         }
         return false;
     }
