@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class MyLinkedList<T> implements MyList {
     private MyNode<T> head;
     private MyNode<T> tail;
@@ -146,6 +148,23 @@ public class MyLinkedList<T> implements MyList {
     }
     @Override
     public void sort() {
+        MyNode<T> currentNode = head;
+        MyNode<T> index;
+        Object temp;
+        if(head == null)
+            return;
+        while (currentNode != null){
+            index = currentNode.next;
+            while (index != null){
+                if(Objects.compare(Objects.toString(currentNode.data), Objects.toString(index.data), String::compareTo) > 0){
+                    temp = currentNode.data;
+                    currentNode.data = index.data;
+                    index.data = temp;
+                }
+                index = index.next;
+            }
+            currentNode = currentNode.next;
 
+        }
     }
 }
