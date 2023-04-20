@@ -175,6 +175,12 @@ public class MyLinkedList<T> implements MyList {
         }
         return -1;
     }
+    /*
+        @ indexOf(Object o) - Returns the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element.
+        @ o - element to search for
+        @ return - the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element
+     */
+
     @Override
     public int lastIndexOf(Object o) {
         MyNode<T> currentNode = tail;
