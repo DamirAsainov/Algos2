@@ -39,6 +39,11 @@ public class MyLinkedList<T> implements MyList {
         }
         size++;
     }
+    /*
+        @ add(Object item) - Appends the specified element to the end of this list.
+        @ item - element to be appended to this list
+     */
+
 
     @Override
     public void add(Object item, int index) {
@@ -65,6 +70,12 @@ public class MyLinkedList<T> implements MyList {
         currentNode.next = newNode;
         size++;
     }
+    /*
+        @ add(Object item, int index) - Inserts the specified element at the specified position in this list. Shifts the element currently at that position (if any) and any subsequent elements to the right
+        @ item - element to be inserted
+        @ index -  index at which the specified element is to be inserted
+     */
+
     @Override
     public Object remove(int index) {
         Object removeObj;
