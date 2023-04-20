@@ -97,11 +97,16 @@ public class MyArrayList<T> implements MyList {
         @ item -  element to be removed from this list, if present
         @ return - true if this list contained the specified element
      */
+
     @Override
     public void clear() {
         this.array = (T[]) new Object[5];
         this.size = 0;
     }
+    /*
+         @ Removes all of the elements from this list. The list will be empty after this call returns.
+     */
+
     @Override
     public Object get(int index) {
         checkIndex(index);

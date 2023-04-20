@@ -147,6 +147,10 @@ public class MyLinkedList<T> implements MyList {
         head = null;
         tail = null;
     }
+    /*
+         @ Removes all of the elements from this list. The list will be empty after this call returns.
+     */
+
     @Override
     public Object get(int index) {
         MyNode<T> curNode = head;
