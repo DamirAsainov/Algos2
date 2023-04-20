@@ -103,6 +103,12 @@ public class MyLinkedList<T> implements MyList {
         size--;
         return removeObj;
     }
+    /*
+        @ remove(int index) - Removes the element at the specified position in this list. Shifts any subsequent elements to the left (subtracts one from their indices).
+        @ index -  the index of the element to be removed
+        @ return - the element that was removed from the list
+     */
+
     @Override
     public boolean remove(Object item) {
         if(item == head.data){
@@ -129,6 +135,12 @@ public class MyLinkedList<T> implements MyList {
         }
         return false;
     }
+    /*
+        @ remove(Object item) - Removes the first occurrence of the specified element from this list, if it is present. If the list does not contain the element, it is unchanged.
+        @ item -  element to be removed from this list, if present
+        @ return - true if this list contained the specified element
+     */
+
     @Override
     public void clear() {
         size = 0;
