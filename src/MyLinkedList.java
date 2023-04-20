@@ -148,7 +148,7 @@ public class MyLinkedList<T> implements MyList {
         tail = null;
     }
     /*
-         @ Removes all of the elements from this list. The list will be empty after this call returns.
+         @ clear() - Removes all of the elements from this list. The list will be empty after this call returns.
      */
 
     @Override
@@ -159,6 +159,12 @@ public class MyLinkedList<T> implements MyList {
         }
         return curNode.data;
     }
+    /*
+        @ get(int index) - Removes the first occurrence of the specified element from this list, if it is present. If the list does not contain the element, it is unchanged.
+        @ index -  index of the element to return
+        @ return - the element at the specified position in this list
+     */
+
     @Override
     public int indexOf(Object o) {
         MyNode<T> currentNode = head;

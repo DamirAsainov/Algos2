@@ -112,6 +112,12 @@ public class MyArrayList<T> implements MyList {
         checkIndex(index);
         return (T) array[index];
     }
+    /*
+        @ get(int index) - Removes the first occurrence of the specified element from this list, if it is present. If the list does not contain the element, it is unchanged.
+        @ index -  index of the element to return
+        @ return - the element at the specified position in this list
+     */
+
     @Override
     public int indexOf(Object o) {
         for(int i = 0; i < size; i++){
