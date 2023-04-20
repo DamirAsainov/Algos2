@@ -4,12 +4,6 @@ public class MyArrayList<T> implements MyList {
     private Object[] array;
     private int size;
     public MyArrayList(){array = new Object[5];}
-
-    private void swap(int index1, int index2){
-        Object temp = array[index1];
-        array[index1] = array[index2];
-        array[index2] = temp;
-    }
     private void increaseBuffer(){
         T[] newArr = (T[]) new Object[array.length + 5];
         for(int i=0; i< array.length; i++){
@@ -17,6 +11,7 @@ public class MyArrayList<T> implements MyList {
         }
         array = newArr;
     }
+    /*Increases the capacity of this ArrayList instance, if necessary, to ensure that it can hold at least the number of elements specified by the minimum capacity argument.*/
     private void checkIndex(int index){
         if(index < 0 || index >= size)
             throw new IndexOutOfBoundsException();
@@ -33,6 +28,12 @@ public class MyArrayList<T> implements MyList {
         }
         return false;
     }
+    /*
+           @ contains - check if this list contains the specified element.
+           @ o - element whose presence in this list is to be tested
+           @ return - true if this list contains the specified element
+        */
+
     @Override
     public void add(Object item) {
         if(size == array.length - 1)

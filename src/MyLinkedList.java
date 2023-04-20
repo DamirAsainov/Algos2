@@ -21,6 +21,12 @@ public class MyLinkedList<T> implements MyList {
         }
         return false;
     }
+    /*
+           @ contains - check if this list contains the specified element.
+           @ o - element whose presence in this list is to be tested
+           @ return - true if this list contains the specified element
+        */
+
     @Override
     public void add(Object item) {
         MyNode<T> newNode = new MyNode<>(item);
