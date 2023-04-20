@@ -191,6 +191,12 @@ public class MyLinkedList<T> implements MyList {
         }
         return -1;
     }
+    /*
+        @ LastIndexOf(Object o) - Returns the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element.
+        @ o - element to search for
+        @ return - the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element
+     */
+
     @Override
     public void sort() {
         MyNode<T> currentNode = head;

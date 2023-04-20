@@ -152,6 +152,12 @@ public class MyArrayList<T> implements MyList {
             }
         }
     }
+    /*
+        @ LastIndexOf(Object o) - Returns the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element.
+        @ o - element to search for
+        @ return - the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element
+     */
+
     public void print(){
         for(int i = 0; i < size; i++)
             System.out.print(array[i] + " ");
