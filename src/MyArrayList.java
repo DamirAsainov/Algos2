@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class MyArrayList<T> implements MyList {
@@ -16,9 +17,9 @@ public class MyArrayList<T> implements MyList {
         if(index < 0 || index >= size)
             throw new IndexOutOfBoundsException();
     }
-    public int getSize(){
-        return size;
-    }
+        public int getSize(){
+            return size;
+        }
 
     @Override
     public boolean contains(Object o) {
@@ -31,7 +32,7 @@ public class MyArrayList<T> implements MyList {
     /*
            @ contains - check if this list contains the specified element.
            @ o - element whose presence in this list is to be tested
-           @ return - true if this list contains the specified element
+               @ return - true if this list contains the specified element
         */
 
     @Override
@@ -63,7 +64,24 @@ public class MyArrayList<T> implements MyList {
         @ item - element to be inserted
         @ index -  index at which the specified element is to be inserted
      */
+    public void addAll(ArrayList<T> items, int index){
+        checkIndex(index);
+        if(array.length == size + items.size()){
+            increaseBuffer();
+        }
+        Object[] newArr = new Object[size];
+        for (int i = 0; i < size;i++){
+            newArr[i] = array[i];
+        }
 
+        for(int i = index, j = 0;i < index + items.size();i++, j++){
+            array[i] = items.get(j);
+        }
+        for(int i = index + items.size(), j = 3; i < size + items.size(); i++, j++){
+            array[i] = newArr[j];
+        }
+        size = size + items.size();
+    }
     @Override
     public Object remove(int index) {
         Object retObj = array[index];
@@ -140,6 +158,12 @@ public class MyArrayList<T> implements MyList {
         }
         return -1;
     }
+    /*
+        @ LastIndexOf(Object o) - Returns the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element.
+        @ o - element to search for
+        @ return - the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element
+     */
+
     @Override
     public void sort() {
         for(int i = 0; i < size - 1; i++){
@@ -152,11 +176,7 @@ public class MyArrayList<T> implements MyList {
             }
         }
     }
-    /*
-        @ LastIndexOf(Object o) - Returns the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element.
-        @ o - element to search for
-        @ return - the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element
-     */
+
 
     public void print(){
         for(int i = 0; i < size; i++)

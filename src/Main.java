@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Enumeration;
+
 public class Main {
     public static void main(String[] args) {
         MyLinkedList<String> linkedList = new MyLinkedList<>();
@@ -33,6 +36,20 @@ public class Main {
         for(int i = 0; i < linkedList.getSize(); i++){
             System.out.print(linkedList.get(i) + " ");
         }
-
+        MyArrayList<Integer> arrayList = new MyArrayList<>();
+        arrayList.add(0);
+        arrayList.add(1);
+        arrayList.add(2);
+        arrayList.add(3);
+        arrayList.add(4);
+        arrayList.add(5);
+        arrayList.add(6);
+        arrayList.print();
+        ArrayList<Integer> nums = new ArrayList<>();
+        nums.add(124);
+        nums.add(125);
+        nums.add(126);
+        arrayList.addAll(nums, 3);
+        arrayList.print();
     }
 }
