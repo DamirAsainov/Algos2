@@ -8,8 +8,8 @@ public class Main {
         linkedList.add("5");
         linkedList.add("3");
         linkedList.add("4");
-        linkedList.add("-");
-        linkedList.add("5");
+        linkedList.add("7");
+        linkedList.add("6");
         linkedList.add("1");
         linkedList.add("0");
         linkedList.add("81", 1);
@@ -32,7 +32,6 @@ public class Main {
             System.out.print(linkedList.get(i) + " ");
         }
         System.out.println();
-        linkedList.clear();
         for(int i = 0; i < linkedList.getSize(); i++){
             System.out.print(linkedList.get(i) + " ");
         }
@@ -51,5 +50,19 @@ public class Main {
         nums.add(126);
         arrayList.addAll(nums, 3);
         arrayList.print();
+        System.out.println("/////////");
+
+        for(int i = 0; i < linkedList.getSize(); i++){
+            System.out.print(linkedList.get(i) + " ");
+        }
+        ArrayList<String> str = new ArrayList<>();
+        str.add("123");
+        str.add("124");
+        str.add("125");
+        linkedList.addAll(str, 3);
+        System.out.println();
+        for(int i = 0; i < linkedList.getSize(); i++){
+            System.out.print(linkedList.get(i) + " ");
+        }
     }
 }

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class MyLinkedList<T> implements MyList {
@@ -75,7 +76,27 @@ public class MyLinkedList<T> implements MyList {
         @ item - element to be inserted
         @ index -  index at which the specified element is to be inserted
      */
+    public void addAll(ArrayList<T> items, int index){
+        MyNode<T> newNode = new MyNode<>(items.get(0));
+        MyNode<T> currentNode = new MyNode<>(items.get(0));
+        for(int i = items.size() - 1;i > 0; i--){
+            currentNode.data = items.get(i);
+            currentNode.prev = newNode;
+            currentNode.prev.next = currentNode;
+            currentNode = currentNode.prev;
+        }
+        currentNode.prev = newNode;
+        newNode.next = currentNode;
+        currentNode = head;
 
+        for(int i = 0; i < index - 1; i++){
+            currentNode = currentNode.next;
+        }
+        newNode.prev = currentNode;
+        currentNode.next = newNode;
+
+        size = size + items.size();
+    }
     @Override
     public Object remove(int index) {
         Object removeObj;
