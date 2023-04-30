@@ -239,4 +239,32 @@ public class MyLinkedList<T> implements MyList {
 
         }
     }
+    public void addFirst(Object item){
+        MyNode<T> newNode = new MyNode<>(item);
+        if (head == null) {
+            head = newNode;
+            tail = newNode;
+        } else {
+            newNode.next = head;
+            head.prev = newNode;
+            head = newNode;
+        }
+        size++;
+
+    }
+    public Object removeFirst(){
+        if (head == null) {
+            return null;
+        }
+        Object res = head.data;
+        MyNode<T> removedNode = head;
+        head = removedNode.next;
+        if (head != null) {
+            head.prev = null;
+        } else {
+            tail = null;
+        }
+        size--;
+        return res;
+    }
 }
