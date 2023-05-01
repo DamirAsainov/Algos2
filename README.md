@@ -1,5 +1,94 @@
 # Assignment 2 Documentaion
 ## 
+# MyLinkedListStack
+MyLinkedListStack class represents a last-in-first-out (LIFO) stack of elements
+
+implemented using a linked list. The class provides the standard push, pop, peek,
+
+isEmpty, and size operations.
+```java
+import java.util.EmptyStackException;
+
+public class MyLinkedListStack<T> {
+    private MyLinkedList<T> list = null;
+
+    public MyLinkedListStack() {
+        list = new MyLinkedList<T>();
+    }
+
+    public void push(T item) {
+        list.addFirst(item);
+    }
+
+    public Object pop() {
+        if (isEmpty()) {
+            throw new EmptyStackException();
+        }
+        return list.removeFirst();
+    }
+
+    public Object peek() {
+        if (isEmpty()) {
+            throw new EmptyStackException();
+        }
+        return list.get(0);
+    }
+
+    public boolean isEmpty() {
+        return size() == 0;
+    }
+
+    public int size() {
+        return list.getSize();
+    }
+}
+```
+# MyLinkedListQueue
+**Description**:is a class that implements a Queue using a LinkedList data structure.
+
+The queue follows the First-In-First-Out (FIFO) principle where the elements are added to the
+back of the queue and removed from the front of the queue.
+
+This class has the following methods:
+* enqueue(E element): Adds an element to the back of the queue.
+* dequeue(): Removes and returns the front element of the queue.
+* peek(): Returns the front element of the queue without removing it.
+* isEmpty(): Returns true if the queue is empty or false if it is not.
+* size(): Returns the number of elements in the queue.
+```java
+import java.util.NoSuchElementException;
+public class MyLinkedListQueue<T> {
+    private MyLinkedList<T> list = null;
+    public MyLinkedListQueue(){
+        list = new MyLinkedList<>();
+    }
+    public MyLinkedListQueue(MyLinkedList<T> linkedList){
+        list = linkedList;
+    }
+    public void enqueue(Object item){
+        list.add(item);
+    }
+    public Object dequeue(){
+        if (isEmpty()) {
+            throw new NoSuchElementException();
+        }
+        return list.removeFirst();
+    }
+    public Object peek(){
+        if (isEmpty()) {
+            throw new NoSuchElementException();
+        }
+        return list.get(0);
+    }
+    public boolean isEmpty(){
+        return size() == 0;
+    }
+    public int size(){
+        return list.getSize();
+    }
+
+}
+```
 # MyList interface
 **Description**: This interface defines a set of methods that a class should implement if it wants to behave like a List. It specifies the common methods that are available in most List implementations, such as adding and removing elements, getting the size of the List, retrieving an element at a specific index, and checking if an element exists in the List*
 ```java
